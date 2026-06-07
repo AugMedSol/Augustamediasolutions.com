@@ -555,7 +555,7 @@
     const fd = new FormData();
     fd.append('Form Type', 'AV Equipment Rental Inquiry');
     fd.append('Name', name);
-    fd.append('Email', email);
+    fd.append('Email', email || 'no-email@augustamediasolutions.com');
     fd.append('Phone', document.getElementById('phone').value);
     fd.append('TV on Rolling Stand', qty.tv);
     fd.append('Projector', qty.projector);
@@ -587,12 +587,15 @@
       } else {
         btn.disabled = false;
         btn.textContent = 'Submit Inquiry';
-        alert('Something went wrong. Please try again or contact us directly.');
+        const errData = await res.json().catch(() => ({}));
+        btn.disabled = false;
+        btn.textContent = 'Submit Inquiry';
+        alert('Error ' + res.status + ': ' + (errData.error || 'Something went wrong. Please try again.'));
       }
     } catch (err) {
       btn.disabled = false;
       btn.textContent = 'Submit Inquiry';
-      alert('Network error. Please check your connection and try again.');
+      alert('Error: ' + err.message + ' — Please try again or contact us directly.');
     }
   }
 
