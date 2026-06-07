@@ -244,6 +244,14 @@
     width: 100%;
   }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10895429405"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-10895429405');
+</script>
 </head>
 <body>
 
@@ -599,7 +607,7 @@
     document.getElementById(`step-${currentStep}`).classList.add('visible');
     updateProgress();
     updateNav();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function updateProgress() {
