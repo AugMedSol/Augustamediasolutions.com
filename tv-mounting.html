@@ -752,14 +752,15 @@
         document.getElementById('success-msg').innerHTML = msg;
         document.getElementById('success').classList.add('visible');
       } else {
+        const errData = await res.json().catch(() => ({}));
         btn.disabled = false;
         btn.textContent = 'Submit Request';
-        alert('Something went wrong. Please try again or contact us directly.');
+        alert('Error ' + res.status + ': ' + (errData.error || 'Something went wrong. Please try again.'));
       }
     } catch (err) {
       btn.disabled = false;
       btn.textContent = 'Submit Request';
-      alert('Network error. Please check your connection and try again.');
+      alert('Error: ' + err.message + ' — Please try again or email us directly.');
     }
   }
 
