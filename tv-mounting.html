@@ -65,31 +65,9 @@
   .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
   .header p { font-family: sans-serif; font-size: 13px; color: #aaa; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px; }
 
-  .progress {
-    display: flex;
-    padding: 16px 24px;
-    background: #fafafa;
-    border-bottom: 1px solid #eee;
-    overflow-x: auto;
-    gap: 0;
-  }
-  .prog-item { display: flex; flex-direction: column; align-items: center; flex: 1; gap: 4px; min-width: 60px; }
-  .prog-dot {
-    width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; font-family: sans-serif;
-    border: 2px solid #ccc; color: #999; background: transparent;
-    transition: all 0.2s;
-  }
-  .prog-dot.active { background: #3791CB; border-color: #3791CB; color: #fff; }
-  .prog-dot.done { background: #3791CB; border-color: #3791CB; color: #fff; }
-  .prog-label { font-size: 10px; font-family: sans-serif; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; color: #999; }
-  .prog-label.active { color: #3791CB; font-weight: 600; }
-
   .
 
-  .step { display: none !important; animation: fadeIn 0.25s ease; }
-  .step.visible { display: block !important; }
+  .step { display: block; }
 
   @keyframes fadeIn { from { opacity:0; transform: translateX(8px); } to { opacity:1; transform: translateX(0); } }
 
@@ -231,12 +209,9 @@
     .
     .nav { padding: 16px 20px 20px; }
     .header { padding: 20px 20px 18px; }
-    .progress { padding: 12px 12px; }
-    .prog-label { font-size: 9px; }
   }
 
-
-  /* Override any form-level body/display styles */
+  
   .form-wrap .card {
     box-shadow: 6px 6px 0 #3791CB;
     border: 2px solid #3791CB;
@@ -274,10 +249,6 @@
     <h1>Request a Quote</h1>
     <p>TV Mounting &amp; Installation</p>
   </div>
-
-  <!-- Progress -->
-  <div class="progress">
-    <div class="prog-item"><div class="prog-dot active" id="dot-0">1</div><span class="prog-label active" id="lbl-0">Location</span></div>
     <div class="prog-item"><div class="prog-dot" id="dot-1">2</div><span class="prog-label" id="lbl-1">TV Details</span></div>
     <div class="prog-item"><div class="prog-dot" id="dot-2">3</div><span class="prog-label" id="lbl-2">Install</span></div>
     <div class="prog-item"><div class="prog-dot" id="dot-3">4</div><span class="prog-label" id="lbl-3">Extras</span></div>
@@ -487,8 +458,7 @@
 
   <!-- Nav -->
   <div class="nav" id="nav">
-    <button class="back-btn" id="backBtn" style="display:none">← Back</button>
-    <button class="next-btn" id="nextBtn">Continue →</button>
+    <button class="next-btn" id="nextBtn">Submit Request</button>
   </div>
 
 </div>
@@ -566,14 +536,8 @@
 
   // Nav
   document.getElementById('nextBtn').addEventListener('click', () => {
-    if (!canProceed()) return;
-    if (currentStep < TOTAL - 1) {
-      goTo(currentStep + 1);
-    } else {
-      submitForm();
-    }
+    submitForm();
   });
-  document.getElementById('backBtn').addEventListener('click', () => { if(currentStep>0) goTo(currentStep-1); });
   document.getElementById('restart').addEventListener('click', () => {
     currentStep = 0;
     tvCount = 1;
@@ -597,49 +561,21 @@
     document.getElementById('nav').style.display = '';
     document.querySelectorAll('.step').forEach(s => s.classList.remove('visible'));
     document.getElementById('step-0').classList.add('visible');
-    updateProgress();
     updateNav();
   });
 
-  function goTo(n) {
-    document.getElementById(`step-${currentStep}`).classList.remove('visible');
-    currentStep = n;
-    document.getElementById(`step-${currentStep}`).classList.add('visible');
-    updateProgress();
-    updateNav();
-    document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function updateProgress() {
-    for (let i = 0; i < TOTAL; i++) {
-      const dot = document.getElementById(`dot-${i}`);
-      const lbl = document.getElementById(`lbl-${i}`);
-      dot.className = 'prog-dot' + (i < currentStep ? ' done' : i === currentStep ? ' active' : '');
-      dot.textContent = i < currentStep ? '✓' : i+1;
-      lbl.className = 'prog-label' + (i === currentStep ? ' active' : '');
-    }
-  }
-
   function updateNav() {
-    document.getElementById('backBtn').style.display = currentStep > 0 ? '' : 'none';
     const btn = document.getElementById('nextBtn');
-    btn.textContent = currentStep === TOTAL - 1 ? 'Submit Request' : 'Continue →';
+    btn.textContent = 'Submit Request';
     btn.disabled = !canProceed();
   }
 
   function canProceed() {
-    if (currentStep === 0) return document.getElementById('city').value.trim() !== '' && state.wallType !== '';
-    if (currentStep === 1) return (tvQty.small + tvQty.large + tvQty.xlarge) > 0;
-    if (currentStep === 2) return (mountQty.mountTilting + mountQty.mountFullMotion + mountQty.mountNone) > 0 && state.ceilingType !== '';
-    if (currentStep === 3) return true;
-    if (currentStep === 4) {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if (contactMode === 'callback') return name !== '' && phone !== '';
-      return name !== '' && email !== '';
-    }
-    return true;
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (contactMode === 'callback') return name !== '' && phone !== '';
+    return name !== '' && email !== '';
   }
 
   // Live validation on text inputs
@@ -710,7 +646,7 @@
     const fd = new FormData();
     fd.append('Contact Type', contactMode === 'callback' ? 'Callback Request' : 'Quote Request');
     fd.append('Name', name);
-    fd.append('Email', email || 'callback-request@no-email.com');
+    fd.append('Email', email);
     fd.append('Phone', document.getElementById('phone').value);
     fd.append('City', document.getElementById('city').value);
     fd.append('Wall Type', state.wallType);
@@ -752,15 +688,14 @@
         document.getElementById('success-msg').innerHTML = msg;
         document.getElementById('success').classList.add('visible');
       } else {
-        const errData = await res.json().catch(() => ({}));
         btn.disabled = false;
         btn.textContent = 'Submit Request';
-        alert('Error ' + res.status + ': ' + (errData.error || 'Something went wrong. Please try again.'));
+        alert('Something went wrong. Please try again or contact us directly.');
       }
     } catch (err) {
       btn.disabled = false;
       btn.textContent = 'Submit Request';
-      alert('Error: ' + err.message + ' — Please try again or email us directly.');
+      alert('Network error. Please check your connection and try again.');
     }
   }
 
