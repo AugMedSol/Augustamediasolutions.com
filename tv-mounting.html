@@ -710,7 +710,7 @@
     const fd = new FormData();
     fd.append('Contact Type', contactMode === 'callback' ? 'Callback Request' : 'Quote Request');
     fd.append('Name', name);
-    fd.append('Email', email);
+    fd.append('Email', email || 'callback-request@no-email.com');
     fd.append('Phone', document.getElementById('phone').value);
     fd.append('City', document.getElementById('city').value);
     fd.append('Wall Type', state.wallType);
