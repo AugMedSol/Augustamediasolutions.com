@@ -192,24 +192,31 @@ footer { background: #1e2a35; padding: 32px 40px; border-top: 2px solid var(--bl
         <span class="ar-note">Opens your camera on iPhone &amp; Android — see your actual wall with the TV placed on it in real size.</span>
       </div>
 
-      <!-- Hidden model-viewer for AR launch -->
+      <!-- model-viewer for AR - always rendered, shown when button clicked -->
       <div id="arContainer" style="display:none; margin-top:16px;">
         <model-viewer
           id="tvModelViewer"
           src="tv-55.glb"
           ar
-          ar-modes="webxr scene-viewer quick-look"
+          ar-modes="scene-viewer webxr quick-look"
           ar-placement="wall"
           camera-controls
-          auto-rotate
-          shadow-intensity="1"
-          style="width:100%;height:300px;background:var(--dark-3);border:1px solid rgba(55,145,203,0.2);"
-          alt="TV placement preview">
-          <button slot="ar-button" style="background:var(--blue);color:#fff;border:none;padding:12px 24px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;position:absolute;bottom:16px;left:50%;transform:translateX(-50%);">
-            Place TV on Your Wall →
+          shadow-intensity="0.5"
+          exposure="1"
+          style="width:100%;height:360px;background:#1a2432;border:1px solid rgba(55,145,203,0.3);"
+          alt="TV AR preview">
+          <button slot="ar-button" style="
+            background:#3791CB;color:#fff;border:none;
+            padding:14px 28px;font-size:14px;font-weight:700;
+            letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;
+            font-family:'DM Sans',sans-serif;
+            position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+            white-space:nowrap;
+          ">
+            📱 Place on Your Wall
           </button>
         </model-viewer>
-        <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:8px;">3D preview — tap "Place TV on Your Wall" to launch AR camera</p>
+        <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:8px;">Tap "Place on Your Wall" to open AR camera on your phone</p>
       </div>
 
       <div class="tips-box">
@@ -433,22 +440,23 @@ document.getElementById('heightSlider').addEventListener('input', e => {
   draw();
 });
 
-// AR button
+// AR button — show model-viewer and let user tap the AR button inside it
 document.getElementById('arBtn').addEventListener('click', () => {
   const container = document.getElementById('arContainer');
   const viewer = document.getElementById('tvModelViewer');
-
-  // Update model to match selected size
   viewer.src = 'tv-' + state.size + '.glb';
-
-  // Show the model viewer panel
   container.style.display = 'block';
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
-  // Wait for model to load then trigger AR
-  viewer.addEventListener('load', () => {
-    viewer.activateAR();
-  }, { once: true });
+// Keep AR model in sync with size selection
+document.querySelectorAll('.size-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    const viewer = document.getElementById('tvModelViewer');
+    if (viewer && document.getElementById('arContainer').style.display !== 'none') {
+      viewer.src = 'tv-' + b.dataset.size + '.glb';
+    }
+  });
 });
 
 window.addEventListener('resize', draw);
