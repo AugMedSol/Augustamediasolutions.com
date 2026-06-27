@@ -438,13 +438,20 @@ document.getElementById('heightSlider').addEventListener('input', e => {
 
 // AR button
 document.getElementById('arBtn').addEventListener('click', () => {
-  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  if (isIOS || isAndroid) {
-    alert('AR coming soon! We\'re building a true-to-size TV model for your camera. In the meantime, use the visualizer above to preview your setup, then get your free quote below.');
-  } else {
-    alert('AR works on iPhone and Android. Open this page on your phone to try it!');
-  }
+  const container = document.getElementById('arContainer');
+  const viewer = document.getElementById('tvModelViewer');
+
+  // Update model to match selected size
+  viewer.src = 'tv-' + state.size + '.glb';
+
+  // Show the model viewer panel
+  container.style.display = 'block';
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Wait for model to load then trigger AR
+  viewer.addEventListener('load', () => {
+    viewer.activateAR();
+  }, { once: true });
 });
 
 window.addEventListener('resize', draw);
