@@ -343,16 +343,6 @@
     <div class="step" id="step-3">
       <h2 class="step-title">Any add-ons?</h2>
       <p class="step-hint">Select all that apply</p>
-      <button class="toggle-row" data-toggle="hideCables">
-        <span class="toggle-icon">🔌</span>
-        <span class="toggle-label">In-wall cable concealment</span>
-        <span class="toggle-check">✓</span>
-      </button>
-      <button class="toggle-row" data-toggle="outlet">
-        <span class="toggle-icon">⚡</span>
-        <span class="toggle-label">Add / relocate outlet behind TV</span>
-        <span class="toggle-check">✓</span>
-      </button>
       <button class="toggle-row" data-toggle="soundbar">
         <span class="toggle-icon">🔊</span>
         <span class="toggle-label">Soundbar mounting &amp; wiring</span>
@@ -462,7 +452,7 @@
 <script>
   const TOTAL = 5;
   let currentStep = 0;
-  const state = { wallType:"", tvSize:"", mountTypes:[], ceilingType:"", hideCables:false, outlet:false, soundbar:false, military:false, day:"", time:"", calltime:"" };
+  const state = { wallType:"", tvSize:"", mountTypes:[], ceilingType:"", soundbar:false, military:false, day:"", time:"", calltime:"" };
 
   // Chip selection (single-select for non-mount chips)
   document.querySelectorAll('.chip:not(.mount-chip)').forEach(btn => {
@@ -654,8 +644,6 @@
     fd.append('Full-Motion Mounts', mountQty.mountFullMotion);
     fd.append('No Mount Needed', mountQty.mountNone);
     fd.append('Ceiling Height', state.ceilingType);
-    fd.append('In-Wall Cable Concealment', state.hideCables ? 'Yes' : 'No');
-    fd.append('Outlet Relocation', state.outlet ? 'Yes' : 'No');
     fd.append('Soundbar Mounting', state.soundbar ? 'Yes' : 'No');
     fd.append('Military Discount', state.military ? 'Yes' : 'No');
     if (contactMode === 'form') {
@@ -683,6 +671,10 @@
           : `Thanks, <strong>${name}</strong>. We'll review your details and get back to you at <strong>${email}</strong> within 1 business day.`;
         document.getElementById('success-msg').innerHTML = msg;
         document.getElementById('success').classList.add('visible');
+        // Fire Google Ads conversion
+        gtag('event', 'conversion', {
+          'send_to': 'AW-10895429405/Wg1fCMTL6sccEJ2erMso'
+        });
       } else {
         btn.disabled = false;
         btn.textContent = 'Submit Request';
@@ -741,8 +733,6 @@
     }
 
     // Add-ons
-    if (state.hideCables) { total += PRICING.cableConceal; lines.push(`Cable Concealment (starting at) — $${PRICING.cableConceal.toFixed(2)}`); }
-    if (state.outlet)     { total += PRICING.outlet;       lines.push(`Outlet Relocation — $${PRICING.outlet.toFixed(2)}`); }
     if (state.soundbar)   { total += PRICING.soundbar;     lines.push(`Soundbar Mounting — $${PRICING.soundbar.toFixed(2)}`); }
 
     // Military discount
