@@ -64,9 +64,30 @@
   .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
   .header p { font-family: sans-serif; font-size: 13px; color: rgba(255,255,255,0.75); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px; }
 
+  .progress {
+    display: flex;
+    padding: 16px 24px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+  }
+  .prog-item { display: flex; flex-direction: column; align-items: center; flex: 1; gap: 4px; min-width: 60px; }
+  .prog-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; font-family: sans-serif;
+    border: 2px solid #ccc; color: #999; background: transparent;
+    transition: all 0.2s;
+  }
+  .prog-dot.active { background: #3791CB; border-color: #3791CB; color: #fff; }
+  .prog-dot.done { background: #3791CB; border-color: #3791CB; color: #fff; }
+  .prog-label { font-size: 10px; font-family: sans-serif; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; color: #999; }
+  .prog-label.active { color: #3791CB; font-weight: 600; }
+
   .
 
-  .step { display: block; }
+  .step { display: none; animation: fadeIn 0.25s ease; }
+  .step.visible { display: block; }
 
   @keyframes fadeIn { from { opacity:0; transform: translateX(8px); } to { opacity:1; transform: translateX(0); } }
 
@@ -165,20 +186,15 @@
     width: 100%;
   }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10895429405"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-10895429405');
-</script>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">Augusta <span>Media</span> Solutions</a>
-  <a href="index.html" class="nav-back">Back to Home</a>
+  <div style="display:flex;gap:20px;align-items:center;">
+    <a href="outdoor-movie.html" class="nav-back">Outdoor Movie Night</a>
+    <a href="index.html" class="nav-back">Back to Home</a>
+  </div>
 </nav>
 
 <div class="page-header">
@@ -193,6 +209,13 @@
     <div class="brand">⬛ AV</div>
     <h1>Equipment Rental Inquiry</h1>
     <p>Audio Visual Rentals</p>
+  </div>
+
+  <div class="progress">
+    <div class="prog-item"><div class="prog-dot active" id="dot-0">1</div><span class="prog-label active" id="lbl-0">Equipment</span></div>
+    <div class="prog-item"><div class="prog-dot" id="dot-1">2</div><span class="prog-label" id="lbl-1">Event</span></div>
+    <div class="prog-item"><div class="prog-dot" id="dot-2">3</div><span class="prog-label" id="lbl-2">Duration</span></div>
+    <div class="prog-item"><div class="prog-dot" id="dot-3">4</div><span class="prog-label" id="lbl-3">Contact</span></div>
   </div>
 
   <div class="body">
@@ -368,7 +391,8 @@
 
   <!-- Nav -->
   <div class="nav" id="nav">
-    <button class="next-btn" id="nextBtn">Submit Inquiry</button>
+    <button class="back-btn" id="backBtn" style="display:none">← Back</button>
+    <button class="next-btn" id="nextBtn" disabled>Continue →</button>
   </div>
 
 </div>
@@ -429,17 +453,24 @@
   }
 
   function canProceed() {
-    return document.getElementById('name').value.trim() !== '' && 
-           document.getElementById('email').value.trim() !== '';
-  }
+    if (currentStep === 0) return totalItems() > 0;
+    if (currentStep === 1) return state.eventType !== '' && document.getElementById('venue').value.trim() !== '';
+    if (currentStep === 2) {
+      const dateOk = document.getElementById('startDate').value !== '';
+      const durationOk = durationType === 'hourly'
+        ? document.getElementById('hours').value !== ''
+        : document.getElementById('days').value !== '';
+      return dateOk && durationOk;
+    }
     if (currentStep === 3) return document.getElementById('name').value.trim() !== '' && document.getElementById('email').value.trim() !== '';
     return true;
   }
 
   function updateNav() {
+    document.getElementById('backBtn').style.display = currentStep > 0 ? '' : 'none';
     const btn = document.getElementById('nextBtn');
-    btn.textContent = 'Submit Inquiry';
-    btn.disabled = false;
+    btn.textContent = currentStep === TOTAL - 1 ? 'Submit Inquiry' : 'Continue →';
+    btn.disabled = !canProceed();
   }
 
   function updateSummary() {
@@ -455,8 +486,33 @@
     bar.innerHTML = tags.map(t => `<span class="summary-tag">${t}</span>`).join('');
   }
 
+  function goTo(n) {
+    document.getElementById(`step-${currentStep}`).classList.remove('visible');
+    currentStep = n;
+    document.getElementById(`step-${currentStep}`).classList.add('visible');
+    updateProgress();
+    updateNav();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress() {
+    for (let i = 0; i < TOTAL; i++) {
+      const dot = document.getElementById(`dot-${i}`);
+      const lbl = document.getElementById(`lbl-${i}`);
+      dot.className = 'prog-dot' + (i < currentStep ? ' done' : i === currentStep ? ' active' : '');
+      dot.textContent = i < currentStep ? '✓' : i + 1;
+      lbl.className = 'prog-label' + (i === currentStep ? ' active' : '');
+    }
+  }
+
   document.getElementById('nextBtn').addEventListener('click', () => {
-    submitForm();
+    if (!canProceed()) return;
+    if (currentStep < TOTAL - 1) goTo(currentStep + 1);
+    else submitForm();
+  });
+
+  document.getElementById('backBtn').addEventListener('click', () => {
+    if (currentStep > 0) goTo(currentStep - 1);
   });
 
   document.getElementById('restart').addEventListener('click', () => {
@@ -476,6 +532,7 @@
     document.getElementById('summaryBar').classList.remove('visible');
     document.querySelectorAll('.step').forEach(s => s.classList.remove('visible'));
     document.getElementById('step-0').classList.add('visible');
+    updateProgress();
     updateNav();
   });
 
@@ -493,7 +550,7 @@
     const fd = new FormData();
     fd.append('Form Type', 'AV Equipment Rental Inquiry');
     fd.append('Name', name);
-    fd.append('Email', email || 'no-email@augustamediasolutions.com');
+    fd.append('Email', email);
     fd.append('Phone', document.getElementById('phone').value);
     fd.append('TV on Rolling Stand', qty.tv);
     fd.append('Projector', qty.projector);
@@ -525,15 +582,12 @@
       } else {
         btn.disabled = false;
         btn.textContent = 'Submit Inquiry';
-        const errData = await res.json().catch(() => ({}));
-        btn.disabled = false;
-        btn.textContent = 'Submit Inquiry';
-        alert('Error ' + res.status + ': ' + (errData.error || 'Something went wrong. Please try again.'));
+        alert('Something went wrong. Please try again or contact us directly.');
       }
     } catch (err) {
       btn.disabled = false;
       btn.textContent = 'Submit Inquiry';
-      alert('Error: ' + err.message + ' — Please try again or contact us directly.');
+      alert('Network error. Please check your connection and try again.');
     }
   }
 
