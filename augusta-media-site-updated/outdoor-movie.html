@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outdoor Movie Night Setup | Augusta Media Solutions</title>
+  <meta name="description" content="Augusta's only outdoor movie night setup service. 12ft and 20ft inflatable screens, powerful audio, full setup and delivery. Starting at $499." />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="icon" href="favicon.ico"/>
+<link rel="canonical" href="https://augustamediasolutions.com/outdoor-movie.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Augusta Media Solutions"/>
+<meta property="og:title" content="Outdoor Movie Night Setup | Augusta Media Solutions"/>
+<meta property="og:description" content="Augusta's only outdoor movie night setup service. 12ft and 20ft inflatable screens, powerful audio, full setup and delivery. Starting at $499."/>
+<meta property="og:image" content="https://augustamediasolutions.com/images/hero-bg.jpg"/>
+<meta property="og:url" content="https://augustamediasolutions.com/outdoor-movie.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Outdoor Movie Night Setup | Augusta Media Solutions"/>
+<meta name="twitter:description" content="Augusta's only outdoor movie night setup service. 12ft and 20ft inflatable screens, powerful audio, full setup and delivery. Starting at $499."/>
+<meta name="twitter:image" content="https://augustamediasolutions.com/images/hero-bg.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #3791CB;
+      --blue-dark: #1f6fa8;
+      --night: #0a0d12;
+      --night-mid: #12161e;
+      --night-soft: #1c2230;
+      --star: #f0e68c;
+      --white: #ffffff;
+      --gray: #8a9ab0;
+      --light: #e8edf3;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--night);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10, 13, 18, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(55, 145, 203, 0.15);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--blue-dark); color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--night);
+    }
+
+    /* Starfield */
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .star-dot {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle var(--dur, 3s) var(--delay, 0s) infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: var(--max-op, 0.7); }
+    }
+
+    /* Screen glow illustration */
+    .screen-glow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 90vw);
+      height: 320px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(55, 145, 203, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-stat-row {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .hero-stat .num span { color: var(--blue); }
+
+    .hero-stat .label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      margin-right: 1rem;
+    }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--blue); transform: translateY(-1px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      color: var(--gray);
+      font-size: 1.05rem;
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* ── RANGE SECTION ── */
+    .range-section {
+      background: var(--night-mid);
+      border-top: 1px solid rgba(55,145,203,0.1);
+      border-bottom: 1px solid rgba(55,145,203,0.1);
+    }
+
+    .range-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .range-visual {
+      position: relative;
+      background: var(--night-soft);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(55,145,203,0.2);
+      padding: 1rem;
+    }
+
+    .range-visual svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── SCREENS GRID ── */
+    .screens-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .screen-card {
+      background: var(--night-mid);
+      border: 1px solid rgba(55,145,203,0.15);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .screen-card:hover { border-color: rgba(55,145,203,0.5); }
+
+    .screen-card.featured {
+      border-color: var(--blue);
+      background: linear-gradient(135deg, rgba(55,145,203,0.08) 0%, var(--night-mid) 100%);
+    }
+
+    .screen-badge {
+      position: absolute;
+      top: -1px;
+      right: 1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .screen-size {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .screen-size span { color: var(--blue); font-size: 2rem; }
+
+    .screen-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .screen-fits {
+      font-size: 0.85rem;
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .includes-section { background: var(--night); }
+
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .include-item {
+      background: var(--night-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+
+    .include-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .include-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .include-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--night-mid); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right, var(--blue), rgba(55,145,203,0.2));
+      pointer-events: none;
+    }
+
+    .step {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    .step-num {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background: var(--night);
+      border: 1px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--blue);
+      margin: 0 auto 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--night); }
+
+    .pricing-card {
+      max-width: 540px;
+      margin: 3rem auto 0;
+      background: var(--night-mid);
+      border: 1px solid var(--blue);
+      border-radius: 12px;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(55,145,203,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .pricing-price {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-price sup {
+      font-size: 2.5rem;
+      vertical-align: super;
+      color: var(--blue);
+    }
+
+    .pricing-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-includes {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.95rem;
+      color: var(--light);
+    }
+
+    .pricing-includes li:last-child { border-bottom: none; }
+
+    .check {
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .pricing-note {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--night-mid); }
+
+    .faq-list {
+      margin-top: 3rem;
+      max-width: 720px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: var(--white);
+    }
+
+    .faq-a {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--blue-dark);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.9rem 2.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--night);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--blue); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0.85rem 1.25rem; }
+      .nav-links { display: none; }
+
+      .range-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .screens-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+
+      .pricing-card { padding: 2rem 1.5rem; }
+      .hero-stat-row { gap: 1.5rem; }
+
+      .btn-primary, .btn-ghost { display: block; margin: 0.5rem auto; max-width: 280px; text-align: center; }
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,13,18,0.4) 0%, rgba(10,13,18,0.15) 40%, rgba(10,13,18,0.9) 100%);
+      z-index: 0;
+    }
+
+    .hero .stars,
+    .hero .screen-glow,
+    .hero-eyebrow,
+    .hero h1,
+    .hero-sub,
+    .hero-stat-row,
+    .hero > div:last-child {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── PHOTO GALLERY ── */
+    .gallery-section {
+      background: var(--night);
+      padding: 5rem 1.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .gallery-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+      transition: transform 0.2s, opacity 0.2s;
+      border: 1px solid rgba(55,145,203,0.1);
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .star-dot { animation: none; opacity: 0.3; }
+      * { transition-duration: 0s !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="images/ams-mark-white-nav.png" alt="" height="20" style="vertical-align:-4px;margin-right:7px;"/>Augusta <span>Media</span> Solutions</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tv-mounting.html">TV Mounting</a></li>
+      <li><a href="av-rental.html">AV Rentals</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="stars" id="stars"></div>
+    <div class="screen-glow"></div>
+
+    <p class="hero-eyebrow">Augusta's Only Outdoor Movie Setup Service</p>
+    <h1>Your Backyard.<br><em>Big Screen.</em><br>One Call.</h1>
+    <p class="hero-sub">We show up before sundown, set everything up, get the movie rolling — then let you enjoy the night. Starting at $499.</p>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat">
+        <div class="num">20<span>ft</span></div>
+        <div class="label">Largest Screen</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">6<span>+</span></div>
+        <div class="label">Years Running</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">$<span>499</span></div>
+        <div class="label">Starting Price</div>
+      </div>
+    </div>
+
+    <div>
+      <a href="outdoor-movie-quote.html" class="btn-primary">Book Your Night</a>
+      <a href="#how-it-works" class="btn-ghost">See How It Works</a>
+    </div>
+  </section>
+
+  <!-- RANGE SECTION -->
+  <section class="range-section">
+    <div class="container">
+      <div class="range-inner">
+        <div>
+          <p class="section-label">Built for Big Crowds</p>
+          <h2 class="section-title">Visible & Audible Across a Little League Field</h2>
+          <p class="section-body">Our screens and speakers aren't backyard toys. The picture is clear and the sound carries — easily covering the distance from home plate to the outfield fence. Backyards, parks, parking lots, and event spaces all work.</p>
+        </div>
+        <div class="range-visual">
+          <img src="images/little-league-visual.jpg" alt="Crowd watching outdoor movie from across a large field" style="width:100%;border-radius:6px;display:block;object-fit:cover;max-height:380px;" />
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="includes-section">
+    <div class="container">
+      <p class="section-label">Two Screen Options</p>
+      <h2 class="section-title">We Bring the Right Setup for Your Event</h2>
+      <p class="section-body">Both screens are inflatable, quick to set up, and built for outdoor use. Tell us your crowd size and we'll recommend the right fit — no upcharge either way.</p>
+
+      <div class="screens-grid">
+        <div class="screen-card">
+          <div class="screen-size">12<span>ft</span></div>
+          <p class="screen-desc">Perfect for backyard birthday parties, family movie nights, and intimate gatherings. Big enough to wow, compact enough for tighter spaces.</p>
+          <p class="screen-fits">Great for: Up to ~75 guests</p>
+        </div>
+        <div class="screen-card featured">
+          <div class="screen-badge">Most Popular</div>
+          <div class="screen-size">20<span>ft</span></div>
+          <p class="screen-desc">Our flagship screen. Ideal for community events, HOA gatherings, large birthday parties, and any event where you want a true cinema feel outdoors.</p>
+          <p class="screen-fits">Great for: 75–200+ guests</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery-section">
+    <div class="container">
+      <p class="section-label">Real Events</p>
+      <h2 class="section-title">See It in Action</h2>
+      <div class="gallery-grid">
+        <img src="images/gallery-1.jpg" class="gallery-img" alt="Crowd watching outdoor movie on large inflatable screen at dusk" />
+        <img src="images/gallery-2.jpg" class="gallery-img" alt="Outdoor movie night at sunset with audience seated in chairs" />
+        <img src="images/gallery-3.jpg" class="gallery-img" alt="Animated movie playing on inflatable screen at night with audience" />
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section style="background: var(--night-mid); padding: 5rem 1.5rem;">
+    <div class="container">
+      <p class="section-label">Everything Included</p>
+      <h2 class="section-title">Full Setup. Nothing to Figure Out.</h2>
+      <p class="section-body">We bring everything required for a complete outdoor cinema experience. You supply the WiFi connection and we handle the rest.</p>
+
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="include-icon">🎬</div>
+          <div class="include-title">Inflatable Screen</div>
+          <p class="include-desc">12ft or 20ft inflatable screen, staked and secured. Stakes to the ground so it's stable even with some wind.</p>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">🔊</div>
+          <div class="include-title">Powered Speakers</div>
+          <p class="include-desc">15" powered speakers with enough output to fill an open outdoor space clearly. No tinny Bluetooth audio — real sound.</p>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">📡</div>
+          <div class="include-title">Streaming Ready</div>
+          <p class="include-desc">Chromecast included. Connect to your WiFi and stream from Netflix, Disney+, YouTube, or any app you already use.</p>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">💡</div>
+          <div class="include-title">Quality Projector</div>
+          <p class="include-desc">A bright, high-quality projector calibrated for outdoor use. The picture is sharp and visible even during the transition from dusk to dark.</p>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">🔌</div>
+          <div class="include-title">Full Equipment Rig</div>
+          <p class="include-desc">Custom-built equipment table houses the projector, audio mixer, and power management. One clean, organized setup — no cable mess.</p>
+        </div>
+        <div class="include-item">
+          <div class="include-icon">🛠️</div>
+          <div class="include-title">Setup & Breakdown</div>
+          <p class="include-desc">We handle full setup before your event starts and return the following morning to break everything down. You don't lift a finger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <p class="section-label">The Process</p>
+      <h2 class="section-title">Simple From Start to Finish</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">Book Online</div>
+          <p class="step-desc">Fill out our quick quote form with your event date, location, and estimated guest count.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">We Set Up</div>
+          <p class="step-desc">We arrive before sundown, set up the full system, and get the movie started for your guests.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">Enjoy the Night</div>
+          <p class="step-desc">Your only job: bring the people and the WiFi. When the movie ends, simply unplug and bring the equipment table inside.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">We Pick Up</div>
+          <p class="step-desc">We return the next morning to handle full breakdown and pickup. Nothing left for you to deal with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="container">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Straightforward. No Surprises.</h2>
+
+      <div class="pricing-card">
+        <div class="pricing-price"><sup>$</sup>499</div>
+        <div class="pricing-label">Flat Rate · Any Screen Size</div>
+
+        <ul class="pricing-includes">
+          <li><span class="check">✓</span> 12ft or 20ft inflatable screen (we recommend based on your crowd)</li>
+          <li><span class="check">✓</span> High-quality outdoor projector</li>
+          <li><span class="check">✓</span> 15" powered speakers</li>
+          <li><span class="check">✓</span> Chromecast for streaming (you provide WiFi)</li>
+          <li><span class="check">✓</span> Audio mixer & full equipment rig</li>
+          <li><span class="check">✓</span> Full setup before your event</li>
+          <li><span class="check">✓</span> Next-morning breakdown & pickup</li>
+          <li><span class="check">✓</span> Military discount available</li>
+        </ul>
+
+        <a href="outdoor-movie-quote.html" class="btn-primary" style="display:block; text-align:center;">Check Your Date</a>
+
+        <p class="pricing-note">Events within 25 miles of Augusta, GA. Travel fees apply for locations beyond 25 miles — contact us and we'll give you a straight answer on the total.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <p class="section-label">Questions</p>
+      <h2 class="section-title">Good Things to Know</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">What do I need to provide?</p>
+          <p class="faq-a">Just a WiFi connection for the Chromecast. We bring everything else. Make sure you have an outdoor outlet or extension cord accessible near the setup area.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What happens at the end of the night?</p>
+          <p class="faq-a">When your movie ends, just unplug the power from the equipment table and bring it inside for the night. The screen stays staked in the yard and the speakers can stay outside — we'll collect everything in the morning.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What can I stream?</p>
+          <p class="faq-a">Anything available on your streaming accounts — Netflix, Disney+, Amazon Prime, YouTube, and more. You control what plays from your phone or device.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What if it rains?</p>
+          <p class="faq-a">We'll work with you to reschedule. Weather can be unpredictable — reach out as soon as you know and we'll find a new date that works.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How far in advance should I book?</p>
+          <p class="faq-a">As soon as you know your date — especially for weekends and summer/fall evenings, which fill up quickly. We recommend at least a week out, though we'll always do our best on short notice.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Do you serve areas outside Augusta?</p>
+          <p class="faq-a">Yes — we serve Columbia County, Evans, Grovetown, and surrounding areas within 25 miles. Farther out is possible with a travel fee. Just ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Make It a Night to Remember?</h2>
+      <p>Check your date and get a quote in minutes. Augusta's only outdoor movie setup service — for 6 years and counting.</p>
+      <a href="outdoor-movie-quote.html" class="btn-white">Book Your Outdoor Movie Night</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Augusta Media Solutions · Augusta, GA · <a href="index.html">Home</a> · <a href="tv-mounting.html">TV Mounting</a> · <a href="av-rental.html">AV Rentals</a></p>
+  </footer>
+
+  <!-- STARFIELD SCRIPT -->
+  <script>
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 120; i++) {
+      const s = document.createElement('div');
+      s.className = 'star-dot';
+      s.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        --dur: ${2 + Math.random() * 4}s;
+        --delay: ${Math.random() * 5}s;
+        --max-op: ${0.3 + Math.random() * 0.7};
+        width: ${Math.random() > 0.8 ? 3 : 2}px;
+        height: ${Math.random() > 0.8 ? 3 : 2}px;
+      `;
+      starsEl.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>

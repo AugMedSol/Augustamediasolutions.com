@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Augusta Media Solutions — Professional AV Services</title>
+<meta name="description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="icon" href="favicon.ico"/>
+<link rel="canonical" href="https://augustamediasolutions.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Augusta Media Solutions"/>
+<meta property="og:title" content="Augusta Media Solutions — Professional AV Services"/>
+<meta property="og:description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<meta property="og:image" content="https://augustamediasolutions.com/favicon-512.png"/>
+<meta property="og:url" content="https://augustamediasolutions.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Augusta Media Solutions — Professional AV Services"/>
+<meta name="twitter:description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<meta name="twitter:image" content="https://augustamediasolutions.com/favicon-512.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
+  :root { --blue: #3791CB; --blue-dark: #2a6fa0; --black: #1a1a1a; --white: #fff; --gray: #f5f4f0; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+    border-bottom: 2px solid var(--blue);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.1em; color: var(--black); text-decoration: none; }
+  .nav-logo span { color: var(--blue); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: #555; text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { padding: 8px 20px; background: var(--blue); color: var(--white) !important; font-weight: 600 !important; border: 2px solid var(--blue); transition: all 0.15s !important; }
+  .nav-cta:hover { background: transparent !important; color: var(--blue) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--black); }
+  .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #fff; border-bottom: 2px solid var(--blue); padding: 20px 40px; flex-direction: column; gap: 0; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: #333; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 0; border-bottom: 1px solid #eee; }
+
+  /* HERO */
+  .hero { min-height: 100vh; background: var(--blue); display: flex; align-items: center; position: relative; overflow: hidden; padding: 100px 40px 60px; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(255,255,255,0.12) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.04) 80px, rgba(255,255,255,0.04) 81px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 80px, rgba(255,255,255,0.04) 81px);
+  }
+  .hero-accent { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); width: 500px; height: 500px; border: 2px solid rgba(255,255,255,0.15); border-radius: 50%; pointer-events: none; }
+  .hero-accent::before { content: ''; position: absolute; inset: 40px; border: 2px solid rgba(255,255,255,0.1); border-radius: 50%; }
+  .hero-content { position: relative; max-width: 620px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 2px; background: rgba(255,255,255,0.85); }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(52px, 8vw, 88px); line-height: 0.95; color: var(--white); letter-spacing: 0.02em; margin-bottom: 24px; }
+  .hero h1 span { color: rgba(255,255,255,0.75); }
+  .hero p { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.9); max-width: 480px; margin-bottom: 36px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { padding: 14px 32px; background: var(--white); color: var(--blue); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid var(--white); cursor: pointer; text-decoration: none; transition: all 0.15s; display: inline-block; }
+  .btn-primary:hover { background: transparent; color: var(--white); }
+  .btn-outline { padding: 14px 32px; background: rgba(255,255,255,0.15); color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; text-decoration: none; transition: all 0.15s; display: inline-block; }
+  .btn-outline:hover { background: rgba(255,255,255,0.25); border-color: var(--white); }
+  .hero-stats { display: flex; gap: 40px; margin-top: 52px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.25); flex-wrap: wrap; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--white); line-height: 1; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+
+  /* SECTIONS */
+  section { padding: 100px 40px; }
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 16px; }
+  .section-label::before { content: ''; width: 20px; height: 2px; background: var(--blue); }
+  h2.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 54px); letter-spacing: 0.02em; color: var(--black); line-height: 1; margin-bottom: 12px; }
+  .section-sub { font-size: 16px; color: #777; max-width: 520px; line-height: 1.7; margin-bottom: 52px; font-weight: 300; }
+
+  /* SERVICES */
+  #services { background: var(--gray); }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .service-card { background: var(--white); padding: 36px 28px; border-bottom: 3px solid transparent; transition: border-color 0.2s, transform 0.2s; text-decoration: none; display: block; }
+  .service-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+  .service-icon { margin-bottom: 16px; display: block; }
+  .service-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.05em; color: var(--black); margin-bottom: 10px; }
+  .service-desc { font-size: 14px; color: #777; line-height: 1.6; font-weight: 300; }
+  .service-link { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+
+  /* WHY US */
+  #why { background: var(--white); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .why-item { padding: 36px 32px; border: 2px solid #e0e0e0; background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; }
+  .why-item:hover { border-color: var(--blue); box-shadow: 4px 4px 0 var(--blue); }
+  .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: rgba(55,145,203,0.25); line-height: 1; margin-bottom: 12px; }
+  .why-title { font-size: 16px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .why-text { font-size: 14px; color: #777; line-height: 1.7; font-weight: 300; }
+
+  /* CTA BAND */
+  .cta-band { background: var(--blue); padding: 80px 40px; text-align: center; }
+  .cta-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 5vw, 52px); color: var(--white); letter-spacing: 0.02em; margin-bottom: 16px; }
+  .cta-band p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 36px; font-weight: 300; }
+  .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { padding: 14px 32px; background: var(--white); color: var(--blue); font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid var(--white); text-decoration: none; transition: all 0.15s; display: inline-block; }
+  .btn-white:hover { background: transparent; color: var(--white); }
+  .btn-white-outline { padding: 14px 32px; background: transparent; color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.6); text-decoration: none; transition: all 0.15s; display: inline-block; }
+  .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+  /* FOOTER */
+  footer { background: #1e2a35; padding: 48px 40px 32px; border-top: 2px solid var(--blue); }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; gap: 32px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.1em; color: var(--white); text-decoration: none; display: block; }
+  .footer-logo span { color: var(--blue); }
+  .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 6px; font-weight: 300; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+  .footer-area { font-size: 12px; color: var(--blue); font-weight: 500; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 60px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-accent { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .footer-top { flex-direction: column; }
+    .cta-band { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/ams-mark-black-nav.png" alt="" height="22" style="vertical-align:-5px;margin-right:8px;"/>Augusta <span>Media</span> Solutions</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="outdoor-movie.html">Movie Night</a>
+    <a href="tv-mounting.html">TV Quote</a>
+    <a href="av-rental.html" class="nav-cta">Rent Equipment</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="outdoor-movie.html">Outdoor Movie Night</a>
+  <a href="tv-mounting.html">Get a TV Quote</a>
+  <a href="av-rental.html">Rent AV Equipment</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Augusta, GA &amp; Surrounding Areas</div>
+    <h1>Your Home.<br/><span>Elevated.</span></h1>
+    <p>Professional TV mounting, cable management, AV rentals, and Augusta's only outdoor movie night setup service. We bring the expertise — you bring the vision.</p>
+    <div class="hero-btns">
+      <a href="tv-mounting.html" class="btn-primary">Get a TV Mount Quote</a>
+      <a href="outdoor-movie.html" class="btn-outline">Outdoor Movie Night</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Installs Done</div>
+      </div>
+      <div>
+        <div class="stat-num">13</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">15%</div>
+        <div class="stat-label">Military Discount</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">From a single TV mount to a backyard movie night — we do it right the first time.</p>
+  <div class="services-grid">
+    <a href="tv-mounting.html" class="service-card">
+      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="32" height="22" rx="2" stroke="#3791CB" stroke-width="2.5"/><line x1="14" y1="28" x2="12" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="28" x2="28" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="34" x2="30" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><rect x="17" y="15" width="6" height="4" rx="1" fill="#3791CB"/></svg></div>
+      <div class="service-name">TV Mounting</div>
+      <div class="service-desc">Professional wall mounting for any size TV on any wall type. Tilting or full-motion mounts available.</div>
+      <span class="service-link">Get a Quote →</span>
+    </a>
+    <a href="tv-mounting.html" class="service-card">
+      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12 C8 12 16 12 16 20 C16 28 24 28 24 28" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><path d="M16 12 C16 12 24 12 24 20 C24 28 32 28 32 28" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><circle cx="8" cy="12" r="3" fill="#3791CB"/><circle cx="16" cy="12" r="3" fill="#3791CB"/><circle cx="24" cy="28" r="3" fill="#3791CB"/><circle cx="32" cy="28" r="3" fill="#3791CB"/></svg></div>
+      <div class="service-name">Cable Management</div>
+      <div class="service-desc">Cord covers, surface raceways, and bundling for a clean setup with no dangling cables.</div>
+      <span class="service-link">Get a Quote →</span>
+    </a>
+    <a href="av-rental.html" class="service-card">
+      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="12" width="24" height="16" rx="2" stroke="#3791CB" stroke-width="2.5"/><circle cx="28" cy="20" r="5" stroke="#3791CB" stroke-width="2.5"/><line x1="28" y1="8" x2="28" y2="12" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><path d="M33 26 L38 32" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><circle cx="13" cy="20" r="3" stroke="#3791CB" stroke-width="2"/></svg></div>
+      <div class="service-name">AV Equipment Rental</div>
+      <div class="service-desc">Projectors, screens, speakers, and microphones for parties, weddings, and corporate events.</div>
+      <span class="service-link">Check Availability →</span>
+    </a>
+    <a href="outdoor-movie.html" class="service-card">
+      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="7" width="30" height="20" rx="2" stroke="#3791CB" stroke-width="2.5"/><path d="M16 16.5 L23 20.5 L16 24.5 Z" fill="#3791CB"/><line x1="12" y1="27" x2="9" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="28" y1="27" x2="31" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+      <div class="service-name">Outdoor Movie Night</div>
+      <div class="service-desc">12ft and 20ft inflatable screens with full setup and delivery — Augusta's only outdoor movie night service.</div>
+      <span class="service-link">Check Availability →</span>
+    </a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">We Take Pride In Our Work</h2>
+  <p class="section-sub">A few reasons Augusta homeowners and businesses trust us.</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <div class="why-title">Military Discount</div>
+      <div class="why-text">We proudly offer 15% off to all active duty and veteran military members. Thank you for your service.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <div class="why-title">Clean, Professional Installs</div>
+      <div class="why-text">No exposed cables, no damage, no mess. Every install is done with precision and care.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <div class="why-title">13 Years of Experience</div>
+      <div class="why-text">With over 500 installs and 13 years in the field, we've seen it all and know how to handle it.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <div class="why-title">Instant Online Quotes</div>
+      <div class="why-text">Our smart quote form gives you an estimated price in real time — no waiting for a callback just to get a number.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Get Started?</h2>
+  <p>Tell us what you need and we'll get back to you fast.</p>
+  <div class="cta-band-btns">
+    <a href="tv-mounting.html" class="btn-white"> Get a TV Mount Quote</a>
+    <a href="av-rental.html" class="btn-white-outline"> Rent AV Equipment</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="footer-logo">Augusta <span>Media</span> Solutions</a>
+      <div class="footer-tagline">Your connection to solutions — Augusta, GA &amp; Surrounding Areas</div>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="tv-mounting.html">TV Mounting Quote</a>
+      <a href="av-rental.html">AV Equipment Rental</a>
+      <a href="https://www.facebook.com/augustamediasolutions/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Augusta Media Solutions. All rights reserved.</div>
+    <div class="footer-area">Serving Augusta, GA &amp; Surrounding Areas</div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('mobileMenu');
+    var btn = document.querySelector('.nav-hamburger');
+    var isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.nav-hamburger').setAttribute('aria-expanded', 'false');
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
