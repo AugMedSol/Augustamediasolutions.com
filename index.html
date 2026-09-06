@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Augusta Media Solutions — Professional AV Services</title>
 <meta name="description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="icon" href="favicon.ico"/>
+<link rel="canonical" href="https://augustamediasolutions.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Augusta Media Solutions"/>
+<meta property="og:title" content="Augusta Media Solutions — Professional AV Services"/>
+<meta property="og:description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<meta property="og:image" content="https://augustamediasolutions.com/favicon-512.png"/>
+<meta property="og:url" content="https://augustamediasolutions.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Augusta Media Solutions — Professional AV Services"/>
+<meta name="twitter:description" content="Professional TV mounting, cable management, projector rentals, and smart home installation in Augusta, GA and surrounding areas."/>
+<meta name="twitter:image" content="https://augustamediasolutions.com/favicon-512.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -128,20 +143,20 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Augusta <span>Media</span> Solutions</a>
+  <a href="index.html" class="nav-logo"><img src="images/ams-mark-black-nav.png" alt="" height="22" style="vertical-align:-5px;margin-right:8px;"/>Augusta <span>Media</span> Solutions</a>
   <div class="nav-links">
     <a href="#services">Services</a>
-    <a href="#why">Why Us</a>
+    <a href="outdoor-movie.html">Movie Night</a>
     <a href="tv-mounting.html">TV Quote</a>
     <a href="av-rental.html" class="nav-cta">Rent Equipment</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMenu()">
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" role="menu">
   <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#why" onclick="closeMobile()">Why Us</a>
+  <a href="outdoor-movie.html">Outdoor Movie Night</a>
   <a href="tv-mounting.html">Get a TV Quote</a>
   <a href="av-rental.html">Rent AV Equipment</a>
 </div>
@@ -153,10 +168,10 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Augusta, GA &amp; Surrounding Areas</div>
     <h1>Your Home.<br/><span>Elevated.</span></h1>
-    <p>Professional TV mounting, cable management, projector rentals, and smart home installation. We bring the expertise — you bring the vision.</p>
+    <p>Professional TV mounting, cable management, AV rentals, and Augusta's only outdoor movie night setup service. We bring the expertise — you bring the vision.</p>
     <div class="hero-btns">
       <a href="tv-mounting.html" class="btn-primary">Get a TV Mount Quote</a>
-      <a href="av-rental.html" class="btn-outline">Rent AV Equipment</a>
+      <a href="outdoor-movie.html" class="btn-outline">Outdoor Movie Night</a>
     </div>
     <div class="hero-stats">
       <div>
@@ -179,7 +194,7 @@
 <section id="services">
   <div class="section-label">What We Do</div>
   <h2 class="section-title">Our Services</h2>
-  <p class="section-sub">From a single TV mount to a full smart home setup — we do it right the first time.</p>
+  <p class="section-sub">From a single TV mount to a backyard movie night — we do it right the first time.</p>
   <div class="services-grid">
     <a href="tv-mounting.html" class="service-card">
       <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="32" height="22" rx="2" stroke="#3791CB" stroke-width="2.5"/><line x1="14" y1="28" x2="12" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="28" x2="28" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="34" x2="30" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><rect x="17" y="15" width="6" height="4" rx="1" fill="#3791CB"/></svg></div>
@@ -200,7 +215,7 @@
       <span class="service-link">Check Availability →</span>
     </a>
     <a href="outdoor-movie.html" class="service-card">
-      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18 L20 6 L34 18" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 15 L10 34 L30 34 L30 15" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="16" y="24" width="8" height="10" rx="1" stroke="#3791CB" stroke-width="2"/><circle cx="27" cy="22" r="2" fill="#3791CB"/></svg></div>
+      <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="7" width="30" height="20" rx="2" stroke="#3791CB" stroke-width="2.5"/><path d="M16 16.5 L23 20.5 L16 24.5 Z" fill="#3791CB"/><line x1="12" y1="27" x2="9" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="28" y1="27" x2="31" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/></svg></div>
       <div class="service-name">Outdoor Movie Night</div>
       <div class="service-desc">12ft and 20ft inflatable screens with full setup and delivery — Augusta's only outdoor movie night service.</div>
       <span class="service-link">Check Availability →</span>
@@ -270,10 +285,14 @@
 
 <script>
   function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
+    var menu = document.getElementById('mobileMenu');
+    var btn = document.querySelector('.nav-hamburger');
+    var isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
   }
   function closeMobile() {
     document.getElementById('mobileMenu').classList.remove('open');
+    document.querySelector('.nav-hamburger').setAttribute('aria-expanded', 'false');
   }
   document.addEventListener('click', function(e) {
     if (!e.target.closest('nav') && !e.target.closest('.mobile-menu')) {
