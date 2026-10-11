@@ -260,7 +260,6 @@
 
   <!-- Header -->
   <div class="header">
-    <div class="brand">⬛ AV</div>
     <h1>Request a Quote</h1>
     <p>TV Mounting &amp; Installation</p>
   </div>
@@ -273,7 +272,7 @@
     <div class="step visible" id="step-0">
       <h2 class="step-title">Where's the install?</h2>
       <label class="field-label">City / Area</label>
-      <input type="text" id="city" placeholder="e.g. Austin, TX" />
+      <input type="text" id="city" placeholder="e.g. Augusta, Evans, Martinez" />
       <label class="field-label">Wall Type</label>
       <div class="chip-grid">
         <button class="chip" data-group="wallType" data-value="Drywall">Drywall</button>
@@ -358,16 +357,22 @@
     <div class="step" id="step-3">
       <h2 class="step-title">Any add-ons?</h2>
       <p class="step-hint">Select all that apply</p>
-      <button class="toggle-row" data-toggle="cableConceal">
-        <span class="toggle-icon">🔌</span>
-        <span class="toggle-label">Cable concealment (cord covers &amp; raceways)</span>
-        <span class="toggle-check">✓</span>
-      </button>
-      <button class="toggle-row" data-toggle="soundbar">
-        <span class="toggle-icon">🔊</span>
-        <span class="toggle-label">Soundbar mounting &amp; wiring</span>
-        <span class="toggle-check">✓</span>
-      </button>
+      <div class="size-row">
+        <div class="size-info"><span class="size-name">🔌 Cable concealment (cord covers &amp; raceways)</span><span class="size-price">+$45 per TV</span></div>
+        <div class="size-counter">
+          <button class="size-btn" data-size="cableConceal" data-dir="dec">−</button>
+          <span class="size-val" id="qty-cableConceal">0</span>
+          <button class="size-btn" data-size="cableConceal" data-dir="inc">+</button>
+        </div>
+      </div>
+      <div class="size-row">
+        <div class="size-info"><span class="size-name">🔊 Soundbar mounting &amp; wiring</span><span class="size-price">+$45 per TV</span></div>
+        <div class="size-counter">
+          <button class="size-btn" data-size="soundbar" data-dir="dec">−</button>
+          <span class="size-val" id="qty-soundbar">0</span>
+          <button class="size-btn" data-size="soundbar" data-dir="inc">+</button>
+        </div>
+      </div>
       <button class="toggle-row" data-toggle="military" style="border-color:#b8860b;">
         <span class="toggle-icon">🎖️</span>
         <span class="toggle-label" style="color:#1a1a1a;">Military Discount <span style="font-size:12px;color:#888;font-weight:400;">(15% off — thank you for your service)</span></span>
@@ -472,7 +477,7 @@
 <script>
   const TOTAL = 5;
   let currentStep = 0;
-  const state = { wallType:"", tvSize:"", mountTypes:[], ceilingType:"", cableConceal:false, soundbar:false, military:false, day:"", time:"", calltime:"" };
+  const state = { wallType:"", tvSize:"", mountTypes:[], ceilingType:"", military:false, day:"", time:"", calltime:"" };
 
   // Chip selection (single-select for non-mount chips)
   document.querySelectorAll('.chip:not(.mount-chip)').forEach(btn => {
@@ -499,19 +504,33 @@
   // Per-size quantity counters
   const tvQty = { small: 0, large: 0, xlarge: 0 };
   const mountQty = { mountTilting: 0, mountFullMotion: 0, mountNone: 0 };
+  const addonQty = { cableConceal: 0, soundbar: 0 };
+  const totalTVCount = () => tvQty.small + tvQty.large + tvQty.xlarge;
+
+  // Add-on counts can't exceed the number of TVs
+  function clampAddons() {
+    const max = totalTVCount();
+    Object.keys(addonQty).forEach(k => {
+      if (addonQty[k] > max) addonQty[k] = max;
+      document.getElementById(`qty-${k}`).textContent = addonQty[k];
+      document.getElementById(`qty-${k}`).closest('.size-row').classList.toggle('active', addonQty[k] > 0);
+    });
+  }
 
   document.querySelectorAll('.size-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const size = btn.dataset.size;
       const dir = btn.dataset.dir;
       // Determine which object to update
-      const isMountQty = size in mountQty;
-      const qtyObj = isMountQty ? mountQty : tvQty;
-      if (dir === 'inc' && qtyObj[size] < 8) qtyObj[size]++;
+      const isAddon = size in addonQty;
+      const qtyObj = isAddon ? addonQty : (size in mountQty ? mountQty : tvQty);
+      const max = isAddon ? totalTVCount() : 8;
+      if (dir === 'inc' && qtyObj[size] < max) qtyObj[size]++;
       if (dir === 'dec' && qtyObj[size] > 0) qtyObj[size]--;
       document.getElementById(`qty-${size}`).textContent = qtyObj[size];
       const row = btn.closest('.size-row');
       row.classList.toggle('active', qtyObj[size] > 0);
+      if (!isAddon) clampAddons();
       updateNav();
       updateQuote();
     });
@@ -553,6 +572,7 @@
     Object.keys(state).forEach(k => state[k] = typeof state[k] === 'boolean' ? false : '');
     document.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
     mountQty.mountTilting = 0; mountQty.mountFullMotion = 0; mountQty.mountNone = 0;
+    addonQty.cableConceal = 0; addonQty.soundbar = 0;
     ['mountTilting','mountFullMotion','mountNone'].forEach(k => {
       const el = document.getElementById(`qty-${k}`);
       if (el) el.textContent = '0';
@@ -664,8 +684,8 @@
     fd.append('Full-Motion Mounts', mountQty.mountFullMotion);
     fd.append('No Mount Needed', mountQty.mountNone);
     fd.append('Ceiling Height', state.ceilingType);
-    fd.append('Cable Concealment', state.cableConceal ? 'Yes' : 'No');
-    fd.append('Soundbar Mounting', state.soundbar ? 'Yes' : 'No');
+    fd.append('Cable Concealment (TVs)', addonQty.cableConceal);
+    fd.append('Soundbar Mounting (TVs)', addonQty.soundbar);
     fd.append('Military Discount', state.military ? 'Yes' : 'No');
     if (contactMode === 'form') {
       fd.append('Preferred Day', state.day || 'Not specified');
@@ -751,8 +771,16 @@
     }
 
     // Add-ons
-    if (state.cableConceal) { total += PRICING.cableConceal; lines.push(`Cable Concealment — $${PRICING.cableConceal.toFixed(2)}`); }
-    if (state.soundbar)   { total += PRICING.soundbar;     lines.push(`Soundbar Mounting — $${PRICING.soundbar.toFixed(2)}`); }
+    if (addonQty.cableConceal > 0) {
+      const lineTotal = PRICING.cableConceal * addonQty.cableConceal;
+      total += lineTotal;
+      lines.push(`Cable Concealment${addonQty.cableConceal > 1 ? ' ×' + addonQty.cableConceal : ''} — $${lineTotal.toFixed(2)}`);
+    }
+    if (addonQty.soundbar > 0) {
+      const lineTotal = PRICING.soundbar * addonQty.soundbar;
+      total += lineTotal;
+      lines.push(`Soundbar Mounting${addonQty.soundbar > 1 ? ' ×' + addonQty.soundbar : ''} — $${lineTotal.toFixed(2)}`);
+    }
 
     // Military discount
     if (state.military && total > 0) {
