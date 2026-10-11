@@ -212,6 +212,7 @@ footer { background: #1e2a35; padding: 32px 40px; border-top: 2px solid var(--bl
         <model-viewer
           id="tvModelViewer"
           src="tv-55-2.glb"
+          ios-src="tv-55-2.usdz"
           ar
           ar-modes="scene-viewer webxr quick-look"
           ar-placement="wall"
@@ -458,6 +459,7 @@ document.getElementById('arBtn').addEventListener('click', () => {
   const container = document.getElementById('arContainer');
   const viewer = document.getElementById('tvModelViewer');
   viewer.src = 'tv-' + state.size + '-2.glb';
+  viewer.iosSrc = 'tv-' + state.size + '-2.usdz';
   container.style.display = 'block';
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
@@ -468,6 +470,7 @@ document.querySelectorAll('.size-btn').forEach(b => {
     const viewer = document.getElementById('tvModelViewer');
     if (viewer && document.getElementById('arContainer').style.display !== 'none') {
       viewer.src = 'tv-' + b.dataset.size + '-2.glb';
+      viewer.iosSrc = 'tv-' + b.dataset.size + '-2.usdz';
     }
   });
 });
