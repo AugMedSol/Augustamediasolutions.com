@@ -211,7 +211,7 @@ footer { background: #1e2a35; padding: 32px 40px; border-top: 2px solid var(--bl
       <div id="arContainer" style="display:none; margin-top:16px;">
         <model-viewer
           id="tvModelViewer"
-          src="tv-55.glb"
+          src="tv-55-2.glb"
           ar
           ar-modes="scene-viewer webxr quick-look"
           ar-placement="wall"
@@ -459,7 +459,7 @@ document.getElementById('heightSlider').addEventListener('input', e => {
 document.getElementById('arBtn').addEventListener('click', () => {
   const container = document.getElementById('arContainer');
   const viewer = document.getElementById('tvModelViewer');
-  viewer.src = 'tv-' + state.size + '.glb';
+  viewer.src = 'tv-' + state.size + '-2.glb';
   container.style.display = 'block';
   container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
@@ -469,7 +469,7 @@ document.querySelectorAll('.size-btn').forEach(b => {
   b.addEventListener('click', () => {
     const viewer = document.getElementById('tvModelViewer');
     if (viewer && document.getElementById('arContainer').style.display !== 'none') {
-      viewer.src = 'tv-' + b.dataset.size + '.glb';
+      viewer.src = 'tv-' + b.dataset.size + '-2.glb';
     }
   });
 });
