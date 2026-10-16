@@ -255,7 +255,7 @@
   <p>Get an instant estimate — takes less than 2 minutes</p>
 </div>
 
-<div class="form-wrap">
+<div class="form-wrap" id="quote" style="scroll-margin-top:80px">
   <div class="card">
 
   <!-- Header -->
@@ -811,6 +811,267 @@
   updateQuote();
 </script>
 </div>
+
+<!-- ===== FAQ ===== -->
+<section class="amsfaq" id="faq" aria-labelledby="amsfaq-title">
+  <div class="amsfaq-inner">
+
+    <div class="amsfaq-head">
+      <span class="amsfaq-eyebrow">FAQ</span>
+      <h2 class="amsfaq-title" id="amsfaq-title">Questions, Answered</h2>
+      <p class="amsfaq-sub">Straight answers to what homeowners are asking.</p>
+    </div>
+
+    <div class="amsfaq-list">
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">01</span><span class="amsfaq-q">How much does TV mounting cost?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>TV mounting starts at $150. Your final price depends on TV size, wall type, and any add-ons. Request a quote and we'll give you an exact price before any work begins.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">02</span><span class="amsfaq-q">Do I need to buy my own mount?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>No. You can use one of our mounts, which come with a lifetime warranty. You're also welcome to supply your own mount, but we can't offer a warranty on customer-supplied mounts.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">03</span><span class="amsfaq-q">Can you mount a TV above a fireplace?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. If your fireplace has a mantel, it deflects most of the heat away from the TV. If there's no mantel, we may add a heat shield to protect the TV. If you're worried about the TV sitting too high, we also offer pull-down mounts that lower the screen to eye level when you're watching.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">04</span><span class="amsfaq-q">Can you mount a TV on brick or stone?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. We secure mounts to brick with masonry anchors. For uneven stone facades, we use spacers along with specialty masonry anchors so the mount sits level and solid.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">05</span><span class="amsfaq-q">Can you mount a TV on metal studs?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. Metal studs just need the right anchors, and we use anchors rated for metal stud walls and the weight of your TV.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">06</span><span class="amsfaq-q">Can you mount large TVs, like 75" or 85"?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. Large TVs just need a mount and fasteners rated for their size and weight, and we use both on every large-screen install.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">07</span><span class="amsfaq-q">Do you install outdoor TVs?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. We use exterior-rated mounts and exterior-rated fasteners. If rain can reach the spot where the TV will hang, we recommend an outdoor-rated TV. Outdoor TV covers are also available.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">08</span><span class="amsfaq-q">Can you mount a TV in an apartment?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Usually, yes. Check your lease or ask your leasing office before booking, since some properties restrict wall mounting. For apartments, we manage cables externally with cord covers and surface raceways.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">09</span><span class="amsfaq-q">Can you hide the wires?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. We use external cord management: paintable cord covers and surface raceways that run cables neatly along the wall, plus cable bundling behind the TV for a clean look.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">10</span><span class="amsfaq-q">What areas do you serve?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Augusta and the surrounding area in Richmond and Columbia County, including Grovetown, Evans, and Martinez.</p></div>
+      </details>
+
+      <details class="amsfaq-item">
+        <summary><span class="amsfaq-num">11</span><span class="amsfaq-q">Do you offer a military discount?</span><span class="amsfaq-icon" aria-hidden="true"></span></summary>
+        <div class="amsfaq-a"><p>Yes. Active duty service members, veterans, and their spouses get 15% off.</p></div>
+      </details>
+
+    </div>
+
+    <div class="amsfaq-cta">
+      <div class="amsfaq-cta-text">
+        <h3>Still have a question?</h3>
+        <p>Call or text and talk to the installer directly.</p>
+      </div>
+      <div class="amsfaq-cta-actions">
+        <a class="amsfaq-btn amsfaq-btn-solid" href="#quote">Get a Quote</a>
+        <a class="amsfaq-btn amsfaq-btn-ghost" href="tel:+17063609486">(706) 360-9486</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .amsfaq {
+    --amsfaq-blue: #3791CB;
+    --amsfaq-ink: #1a1a1a;
+    --amsfaq-line: #e0e0e0;
+    --amsfaq-muted: #5c5c5c;
+    background: #f5f4f0;
+    padding: 72px 20px 88px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--amsfaq-ink);
+  }
+  .amsfaq-inner { max-width: 780px; margin: 0 auto; }
+
+  /* Heading */
+  .amsfaq-head { text-align: center; margin: 0 0 36px; }
+  .amsfaq-eyebrow {
+    display: inline-block; margin: 0 0 10px; padding: 4px 10px;
+    border: 2px solid var(--amsfaq-blue); color: var(--amsfaq-blue);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .amsfaq-title {
+    font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+    font-size: clamp(38px, 6vw, 60px); line-height: 1; letter-spacing: 0.02em;
+    margin: 0 0 10px; color: var(--amsfaq-ink);
+  }
+  .amsfaq-sub { margin: 0; font-size: 16px; font-weight: 300; color: var(--amsfaq-muted); }
+
+  /* Items */
+  .amsfaq-list { display: flex; flex-direction: column; gap: 12px; }
+  .amsfaq-item {
+    background: #fff; border: 2px solid var(--amsfaq-line);
+    transition: border-color .15s, box-shadow .2s, transform .2s;
+  }
+  .amsfaq-item:hover { border-color: var(--amsfaq-blue); }
+  .amsfaq-item[open] {
+    border-color: var(--amsfaq-blue);
+    box-shadow: 5px 5px 0 var(--amsfaq-blue);
+    transform: translate(-2px, -2px);
+  }
+
+  .amsfaq-item summary {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 20px; cursor: pointer; list-style: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .amsfaq-item summary::-webkit-details-marker { display: none; }
+  .amsfaq-item summary:focus-visible { outline: 3px solid var(--amsfaq-blue); outline-offset: 2px; }
+
+  .amsfaq-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px; line-height: 1;
+    color: var(--amsfaq-blue); min-width: 30px; letter-spacing: 0.02em;
+  }
+  .amsfaq-q { flex: 1; font-size: 17px; font-weight: 600; line-height: 1.35; }
+
+  /* Plus / minus toggle */
+  .amsfaq-icon {
+    position: relative; flex: none; width: 30px; height: 30px;
+    border: 2px solid var(--amsfaq-blue); background: #fff;
+    transition: background .15s;
+  }
+  .amsfaq-icon::before, .amsfaq-icon::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 12px; height: 2px; background: var(--amsfaq-blue);
+    transform: translate(-50%, -50%); transition: transform .2s, background .15s;
+  }
+  .amsfaq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .amsfaq-item[open] .amsfaq-icon { background: var(--amsfaq-blue); }
+  .amsfaq-item[open] .amsfaq-icon::before,
+  .amsfaq-item[open] .amsfaq-icon::after { background: #fff; }
+  .amsfaq-item[open] .amsfaq-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+
+  /* Answer */
+  .amsfaq-a { padding: 0 20px 20px 66px; animation: amsfaqIn .25s ease; }
+  .amsfaq-a p { margin: 0; font-size: 15.5px; line-height: 1.65; color: #3d3d3d; }
+  @keyframes amsfaqIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  /* CTA */
+  .amsfaq-cta {
+    margin-top: 40px; background: var(--amsfaq-blue); color: #fff;
+    padding: 28px 28px; display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap; box-shadow: 6px 6px 0 var(--amsfaq-ink);
+  }
+  .amsfaq-cta h3 {
+    font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+    font-size: 32px; letter-spacing: 0.03em; line-height: 1; margin: 0 0 6px;
+  }
+  .amsfaq-cta p { margin: 0; font-size: 15px; color: rgba(255,255,255,0.88); }
+  .amsfaq-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .amsfaq-btn {
+    display: inline-block; padding: 12px 22px; border: 2px solid #fff;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.04em;
+    text-decoration: none; transition: background .15s, color .15s;
+  }
+  .amsfaq-btn-solid { background: #fff; color: var(--amsfaq-blue); }
+  .amsfaq-btn-solid:hover { background: var(--amsfaq-ink); border-color: var(--amsfaq-ink); color: #fff; }
+  .amsfaq-btn-ghost { background: transparent; color: #fff; }
+  .amsfaq-btn-ghost:hover { background: #fff; color: var(--amsfaq-blue); }
+
+  @media (max-width: 640px) {
+    .amsfaq { padding: 52px 16px 64px; }
+    .amsfaq-item summary { padding: 16px 14px; gap: 12px; }
+    .amsfaq-num { font-size: 22px; min-width: 24px; }
+    .amsfaq-q { font-size: 16px; }
+    .amsfaq-a { padding: 0 14px 18px 50px; }
+    .amsfaq-cta { padding: 24px 20px; }
+    .amsfaq-cta-actions, .amsfaq-btn { width: 100%; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .amsfaq-item, .amsfaq-icon::before, .amsfaq-icon::after { transition: none; }
+    .amsfaq-a { animation: none; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does TV mounting cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "TV mounting starts at $150. Your final price depends on TV size, wall type, and any add-ons. Request a quote and we'll give you an exact price before any work begins." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to buy my own mount?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. You can use one of our mounts, which come with a lifetime warranty. You're also welcome to supply your own mount, but we can't offer a warranty on customer-supplied mounts." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV above a fireplace?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. If your fireplace has a mantel, it deflects most of the heat away from the TV. If there's no mantel, we may add a heat shield to protect the TV. If you're worried about the TV sitting too high, we also offer pull-down mounts that lower the screen to eye level when you're watching." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV on brick or stone?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We secure mounts to brick with masonry anchors. For uneven stone facades, we use spacers along with specialty masonry anchors so the mount sits level and solid." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV on metal studs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Metal studs just need the right anchors, and we use anchors rated for metal stud walls and the weight of your TV." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount large TVs, like 75\" or 85\"?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Large TVs just need a mount and fasteners rated for their size and weight, and we use both on every large-screen install." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you install outdoor TVs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We use exterior-rated mounts and exterior-rated fasteners. If rain can reach the spot where the TV will hang, we recommend an outdoor-rated TV. Outdoor TV covers are also available." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV in an apartment?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes. Check your lease or ask your leasing office before booking, since some properties restrict wall mounting. For apartments, we manage cables externally with cord covers and surface raceways." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you hide the wires?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We use external cord management: paintable cord covers and surface raceways that run cables neatly along the wall, plus cable bundling behind the TV for a clean look." }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas do you serve?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Augusta and the surrounding area in Richmond and Columbia County, including Grovetown, Evans, and Martinez." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer a military discount?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Active duty service members, veterans, and their spouses get 15% off." }
+    }
+  ]
+}
+</script>
+<!-- ===== /FAQ ===== -->
 
 <footer>
   <a href="index.html" class="footer-logo">Augusta <span>Media</span> Solutions</a>
