@@ -27,6 +27,14 @@
   body { font-family: 'DM Sans', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
   :root { --blue: #3791CB; --blue-dark: #2a6fa0; --black: #1a1a1a; --white: #fff; --gray: #f5f4f0; }
 
+
+  /* REVIEWS */
+  .ams-reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ams-stars { color: #f5a623; font-size: 15px; letter-spacing: 2px; margin-bottom: 12px; }
+  .ams-quote { font-size: 14.5px; color: #555; line-height: 1.7; font-style: italic; font-weight: 300; margin-bottom: 16px; }
+  .ams-via { font-size: 11px; color: #999; margin-top: 2px; }
+  @media (max-width: 900px) { .ams-reviews { grid-template-columns: 1fr; } }
+
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -147,6 +155,28 @@
   gtag('js', new Date());
   gtag('config', 'AW-10895429405');
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Augusta Media Solutions",
+  "url": "https://augustamediasolutions.com/",
+  "logo": "https://augustamediasolutions.com/favicon-512.png",
+  "image": "https://augustamediasolutions.com/favicon-512.png",
+  "telephone": "+1-706-360-9486",
+  "email": "shawn@augustamediasolutions.com",
+  "description": "Professional TV mounting, external cable management, AV equipment rentals, and outdoor movie night setup in Augusta, GA and surrounding areas.",
+  "areaServed": [
+    {"@type": "City", "name": "Augusta, GA"},
+    {"@type": "City", "name": "Evans, GA"},
+    {"@type": "City", "name": "Grovetown, GA"},
+    {"@type": "City", "name": "Martinez, GA"},
+    {"@type": "AdministrativeArea", "name": "Richmond County, GA"},
+    {"@type": "AdministrativeArea", "name": "Columbia County, GA"}
+  ],
+  "sameAs": ["https://www.facebook.com/augustamediasolutions/"]
+}
+</script>
 </head>
 <body>
 
@@ -183,6 +213,10 @@
     </div>
     <div class="hero-stats">
       <div>
+        <div class="stat-num">5.0★</div>
+        <div class="stat-label">30+ Google Reviews</div>
+      </div>
+      <div>
         <div class="stat-num">500+</div>
         <div class="stat-label">Installs Done</div>
       </div>
@@ -205,12 +239,13 @@
   <p class="section-sub">From a single TV mount to a backyard movie night — we do it right the first time.</p>
   <div class="services-grid">
     <div class="service-card" style="cursor:default;">
-      <a href="tv-mounting.html" style="text-decoration:none;display:block;color:inherit;">
+      <a href="tv-mounting-lp.html" style="text-decoration:none;display:block;color:inherit;">
         <div class="service-icon"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="32" height="22" rx="2" stroke="#3791CB" stroke-width="2.5"/><line x1="14" y1="28" x2="12" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="28" x2="28" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="34" x2="30" y2="34" stroke="#3791CB" stroke-width="2.5" stroke-linecap="round"/><rect x="17" y="15" width="6" height="4" rx="1" fill="#3791CB"/></svg></div>
         <div class="service-name">TV Mounting</div>
         <div class="service-desc">Professional wall mounting for any size TV on any wall type. Tilting or full-motion mounts available.</div>
       </a>
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;">
+        <a href="tv-mounting-lp.html" class="service-link" style="margin-top:0;">Reviews &amp; Details →</a>
         <a href="tv-mounting.html" class="service-link" style="margin-top:0;">Get a Quote →</a>
         <a href="tv-visualizer.html" class="service-link" style="margin-top:0;">Preview Your Wall →</a>
       </div>
@@ -246,12 +281,12 @@
     <div class="why-item">
       <div class="why-num">01</div>
       <div class="why-title">Military Discount</div>
-      <div class="why-text">We proudly offer 15% off to all active duty and veteran military members. Thank you for your service.</div>
+      <div class="why-text">We proudly offer 15% off to active duty service members, veterans, and their spouses. Thank you for your service.</div>
     </div>
     <div class="why-item">
       <div class="why-num">02</div>
       <div class="why-title">Clean, Professional Installs</div>
-      <div class="why-text">No exposed cables, no damage, no mess. Every install is done with precision and care.</div>
+      <div class="why-text">No dangling cables, no damage, no mess. Every install is done with precision and care.</div>
     </div>
     <div class="why-item">
       <div class="why-num">03</div>
@@ -266,6 +301,19 @@
   </div>
 </section>
 
+
+<!-- REVIEWS (real Google reviews, quoted verbatim) -->
+<section id="reviews" style="background:var(--gray);">
+  <div class="section-label">Reviews</div>
+  <h2 class="section-title">Rated 5.0 on Google</h2>
+  <p class="section-sub">30+ five-star Google reviews from real customers.</p>
+  <div class="ams-reviews">
+    <div class="why-item"><div class="ams-stars">★★★★★</div><p class="ams-quote">"Great guy! He was able to figure out a tricky placement and mounted the TV without any issues. He even took the trash with him and wiped down the TV. Would highly recommend."</p><div class="why-title" style="margin:0">Nikol C.</div><div class="ams-via">Google Review</div></div>
+    <div class="why-item"><div class="ams-stars">★★★★★</div><p class="ams-quote">"These guys were amazing! They were so fast and nice! They made it convenient to pay and they had everything they needed to hang our brand new tv! Would 1000% recommend"</p><div class="why-title" style="margin:0">Katelyn D.</div><div class="ams-via">Google Review</div></div>
+    <div class="why-item"><div class="ams-stars">★★★★★</div><p class="ams-quote">"Had an Amazing experience with Shawn! He was able to come out the same day I contacted him and had my TV up in no time. Super professional and efficient—I’ll definitely be reaching out again!"</p><div class="why-title" style="margin:0">Asia J.</div><div class="ams-via">Google Review</div></div>
+  </div>
+</section>
+
 <!-- CTA BAND -->
 <div class="cta-band">
   <h2>Ready to Get Started?</h2>
@@ -274,6 +322,7 @@
     <a href="tv-mounting.html" class="btn-white"> Get a TV Mount Quote</a>
     <a href="av-rental.html" class="btn-white-outline"> Rent AV Equipment</a>
   </div>
+  <p style="margin:28px 0 0;font-size:15px;color:rgba(255,255,255,0.9);">Rather talk? Call or text <a href="tel:+17063609486" style="color:#fff;font-weight:700;">(706) 360-9486</a></p>
 </div>
 
 <!-- FOOTER -->
@@ -288,6 +337,8 @@
       <a href="#why">Why Us</a>
       <a href="tv-mounting.html">TV Mounting Quote</a>
       <a href="av-rental.html">AV Equipment Rental</a>
+      <a href="warranty.html">Warranty</a>
+      <a href="tel:+17063609486">(706) 360-9486</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="https://www.facebook.com/augustamediasolutions/" target="_blank" rel="noopener">Facebook</a>
     </div>
@@ -315,5 +366,30 @@
     }
   });
 </script>
+
+<!-- Call / text button -->
+<a class="ams-call" href="tel:+17063609486" aria-label="Call or text Augusta Media Solutions at (706) 360-9486">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+  <span class="ams-call-num">(706) 360-9486</span>
+</a>
+<style>
+  .ams-call {
+    position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 999;
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px;
+    background: #3791CB; color: #fff; text-decoration: none; border: 2px solid #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+    box-shadow: 4px 4px 0 #1a1a1a; transition: transform .15s, box-shadow .15s;
+  }
+  .ams-call:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 #1a1a1a; }
+  .ams-call:focus-visible { outline: 3px solid #1a1a1a; outline-offset: 2px; }
+  @media (max-width: 640px) {
+    .ams-call { left: 0; right: 0; bottom: 0; justify-content: center; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+      border: none; border-top: 2px solid #fff; box-shadow: 0 -4px 16px rgba(0,0,0,0.18); font-size: 16px; }
+    .ams-call:hover { transform: none; box-shadow: 0 -4px 16px rgba(0,0,0,0.18); }
+    .ams-call-num::before { content: 'Call or Text '; font-weight: 500; }
+    body { padding-bottom: calc(46px + env(safe-area-inset-bottom, 0px)) !important; }
+  }
+  @media print { .ams-call { display: none; } }
+</style>
 </body>
 </html>
