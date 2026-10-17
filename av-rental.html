@@ -219,7 +219,7 @@
 
 <div class="page-header">
   <h1>AV Equipment Rental</h1>
-  <p>Projectors, TVs, speakers, microphones &amp; more — delivered &amp; set up for your event</p>
+  <p>Projectors, TVs, PA speakers &amp; microphones — delivered &amp; set up for your event</p>
 </div>
 
 <div class="form-wrap">
@@ -248,7 +248,7 @@
       <div class="equip-row" id="row-tv">
         <div class="equip-info">
           <span class="equip-name">📺 TV on Rolling Stand</span>
-          <span class="equip-sub">Flat screen display, mobile stand included</span>
+          <span class="equip-sub">Flat screen display, mobile stand included (1 available)</span>
         </div>
         <div class="equip-counter">
           <button class="equip-btn" data-item="tv" data-dir="dec">−</button>
@@ -260,7 +260,7 @@
       <div class="equip-row" id="row-projector">
         <div class="equip-info">
           <span class="equip-name">📽️ Projector</span>
-          <span class="equip-sub">Includes screen &amp; cables</span>
+          <span class="equip-sub">Includes indoor screen (6ft or 12ft) &amp; cables — add your size in the notes</span>
         </div>
         <div class="equip-counter">
           <button class="equip-btn" data-item="projector" data-dir="dec">−</button>
@@ -271,8 +271,8 @@
 
       <div class="equip-row" id="row-speaker">
         <div class="equip-info">
-          <span class="equip-name">🔊 Speaker</span>
-          <span class="equip-sub">PA speaker, suitable for events</span>
+          <span class="equip-name">🔊 Small PA Speaker</span>
+          <span class="equip-sub">Powered speaker for smaller rooms (up to 2)</span>
         </div>
         <div class="equip-counter">
           <button class="equip-btn" data-item="speaker" data-dir="dec">−</button>
@@ -281,10 +281,22 @@
         </div>
       </div>
 
+      <div class="equip-row" id="row-speakerLarge">
+        <div class="equip-info">
+          <span class="equip-name">🔊 Large PA Speaker</span>
+          <span class="equip-sub">Powered speaker for bigger events (up to 2)</span>
+        </div>
+        <div class="equip-counter">
+          <button class="equip-btn" data-item="speakerLarge" data-dir="dec">−</button>
+          <span class="equip-val" id="qty-speakerLarge">0</span>
+          <button class="equip-btn" data-item="speakerLarge" data-dir="inc">+</button>
+        </div>
+      </div>
+
       <div class="equip-row" id="row-micWired">
         <div class="equip-info">
           <span class="equip-name">🎤 Wired Microphone</span>
-          <span class="equip-sub">Includes stand &amp; cable</span>
+          <span class="equip-sub">Includes stand &amp; cable (up to 2)</span>
         </div>
         <div class="equip-counter">
           <button class="equip-btn" data-item="micWired" data-dir="dec">−</button>
@@ -296,7 +308,7 @@
       <div class="equip-row" id="row-micWireless">
         <div class="equip-info">
           <span class="equip-name">🎙️ Wireless Microphone</span>
-          <span class="equip-sub">Handheld or lapel, receiver included</span>
+          <span class="equip-sub">Receiver included (up to 6)</span>
         </div>
         <div class="equip-counter">
           <button class="equip-btn" data-item="micWireless" data-dir="dec">−</button>
@@ -322,7 +334,7 @@
       </div>
 
       <label class="field-label">Event Location / Venue</label>
-      <input type="text" id="venue" placeholder="e.g. Marriott Downtown, Phoenix AZ" />
+      <input type="text" id="venue" placeholder="e.g. venue name or address in Evans, GA" />
 
       <label class="field-label">Expected Attendance</label>
       <div class="chip-grid">
@@ -422,7 +434,8 @@
   let currentStep = 0;
   let durationType = 'hourly';
 
-  const qty = { tv: 0, projector: 0, speaker: 0, micWired: 0, micWireless: 0 };
+  const qty = { tv: 0, projector: 0, speaker: 0, speakerLarge: 0, micWired: 0, micWireless: 0 };
+  const MAX = { tv: 1, projector: 1, speaker: 2, speakerLarge: 2, micWired: 2, micWireless: 6 };
   const state = { eventType: '', attendance: '', delivery: 'Delivery & Setup' };
 
   // Equipment counters
@@ -430,7 +443,7 @@
     btn.addEventListener('click', () => {
       const item = btn.dataset.item;
       const dir = btn.dataset.dir;
-      if (dir === 'inc' && qty[item] < 20) qty[item]++;
+      if (dir === 'inc' && qty[item] < MAX[item]) qty[item]++;
       if (dir === 'dec' && qty[item] > 0) qty[item]--;
       document.getElementById(`qty-${item}`).textContent = qty[item];
       document.getElementById(`row-${item}`).classList.toggle('active', qty[item] > 0);
@@ -498,7 +511,8 @@
     const tags = [];
     if (qty.tv > 0) tags.push(`📺 TV ×${qty.tv}`);
     if (qty.projector > 0) tags.push(`📽️ Projector ×${qty.projector}`);
-    if (qty.speaker > 0) tags.push(`🔊 Speaker ×${qty.speaker}`);
+    if (qty.speaker > 0) tags.push(`🔊 Small PA ×${qty.speaker}`);
+    if (qty.speakerLarge > 0) tags.push(`🔊 Large PA ×${qty.speakerLarge}`);
     if (qty.micWired > 0) tags.push(`🎤 Wired Mic ×${qty.micWired}`);
     if (qty.micWireless > 0) tags.push(`🎙️ Wireless Mic ×${qty.micWireless}`);
     if (tags.length === 0) { bar.classList.remove('visible'); return; }
@@ -574,7 +588,8 @@
     fd.append('Phone', document.getElementById('phone').value);
     fd.append('TV on Rolling Stand', qty.tv);
     fd.append('Projector', qty.projector);
-    fd.append('Speaker', qty.speaker);
+    fd.append('Small PA Speaker', qty.speaker);
+    fd.append('Large PA Speaker', qty.speakerLarge);
     fd.append('Wired Microphone', qty.micWired);
     fd.append('Wireless Microphone', qty.micWireless);
     fd.append('Event Type', state.eventType);
