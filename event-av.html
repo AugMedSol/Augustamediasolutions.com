@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Meeting &amp; Event AV — Augusta Media Solutions</title>
-<meta name="description" content="On-site AV tech for meetings, trainings, and presentations in Augusta, GA. Projector, sound, and microphones set up and run for you — $150/hour."/>
+<meta name="description" content="On-site AV tech for meetings, trainings, and presentations in Augusta, GA. Projector, sound, and microphones set up and run for you, with one flat price per event."/>
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
@@ -193,18 +193,18 @@
 <section class="pricing">
   <div class="wrap">
     <div class="section-label">Pricing</div>
-    <h2 class="section-title">Simple hourly rate</h2>
-    <p class="section-sub">No package math. You pay for the tech's time on site, and the standard equipment comes with it.</p>
+    <h2 class="section-title">One price for your event</h2>
+    <p class="section-sub">Every room is different, so there's no rate sheet to decode. Tell me what your event needs and you get a single flat price for the whole thing.</p>
     <div class="price-card">
       <div class="price-left">
-        <div class="price-amt">$150<small>/hour</small></div>
-        <div class="price-note">On-site, setup through teardown</div>
+        <div class="price-amt">1 <small>flat price</small></div>
+        <div class="price-note">Quoted per event, in writing</div>
       </div>
       <div class="price-right">
         <h3>What's included</h3>
-        <p>Setup, operation, and teardown, plus use of our standard equipment: projector and screen, TV display, PA speakers, mixer, and microphones.</p>
-        <h3>Special equipment</h3>
-        <p>If your event needs something outside our inventory, it's quoted in writing before you book. No surprises on the invoice.</p>
+        <p>Setup, the tech on site for your event, teardown, and every piece of equipment your event needs.</p>
+        <h3>No surprises</h3>
+        <p>You approve the price before you book. If the plan changes, we agree on it before any extra work happens.</p>
       </div>
     </div>
   </div>
@@ -230,7 +230,7 @@
       <h2 class="section-title" style="margin-bottom:28px;">Four steps, one contact</h2>
       <div class="steps">
         <div class="step-item"><h4>Send your details</h4><p>Date, venue, headcount, and what needs to happen in the room.</p></div>
-        <div class="step-item"><h4>Get a written quote</h4><p>Estimated hours and any special equipment, before you commit.</p></div>
+        <div class="step-item"><h4>Get a written quote</h4><p>One flat price for your event, before you commit.</p></div>
         <div class="step-item"><h4>Setup &amp; sound check</h4><p>Everything tested before your first guest walks in.</p></div>
         <div class="step-item"><h4>Run it &amp; pack it out</h4><p>On site through the end, then the room goes back the way it was.</p></div>
       </div>
@@ -245,7 +245,7 @@
     <div class="form-card">
       <div class="form-head">
         <h3>Meeting &amp; Event AV Inquiry</h3>
-        <p>Reply within 1 business day with availability and an estimate</p>
+        <p>Reply within 1 business day with availability and your price</p>
       </div>
 
       <div id="formArea">
@@ -312,7 +312,7 @@
       <div class="success" id="success">
         <div class="success-icon">✓</div>
         <h3>Inquiry Sent</h3>
-        <p id="successMsg">Thanks! I'll get back to you within 1 business day with availability and an estimate.</p>
+        <p id="successMsg">Thanks! I'll get back to you within 1 business day with availability and your price.</p>
       </div>
     </div>
   </div>
@@ -369,7 +369,7 @@
       const res = await fetch('https://formspree.io/f/mgoddwpg', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd });
       if (res.ok) {
         document.getElementById('formArea').style.display = 'none';
-        document.getElementById('successMsg').innerHTML = `Thanks, <strong>${esc(val('name'))}</strong>! I'll get back to you at <strong>${esc(val('email'))}</strong> within 1 business day with availability and an estimate.`;
+        document.getElementById('successMsg').innerHTML = `Thanks, <strong>${esc(val('name'))}</strong>! I'll get back to you at <strong>${esc(val('email'))}</strong> within 1 business day with availability and your price.`;
         document.getElementById('success').classList.add('visible');
       } else {
         btn.disabled = false; btn.textContent = 'Send Inquiry';
